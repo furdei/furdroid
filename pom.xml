@@ -8,14 +8,15 @@
   </parent>
   <groupId>systems.furdei</groupId>
   <artifactId>furdroid</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>pom</packaging>
 
     <scm>
       <url>https://github.com/furdei/furdroid</url>
       <connection>scm:git:git://github.com/furdei/furdroid.git</connection>
       <developerConnection>scm:git:https://github.com/furdei/furdroid.git</developerConnection>
-    </scm>
+      <tag>furdroid-1.0</tag>
+  </scm>
 
   <properties>
     <veganet-server.version>1.0-SNAPSHOT</veganet-server.version>
