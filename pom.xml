@@ -11,28 +11,17 @@
   <version>1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-    <scm>
-      <url>https://github.com/furdei/furdroid</url>
-      <connection>scm:git:git://github.com/furdei/furdroid.git</connection>
-      <developerConnection>scm:git:https://github.com/furdei/furdroid.git</developerConnection>
-      <tag>HEAD</tag>
+  <scm>
+    <url>https://github.com/furdei/furdroid</url>
+    <connection>scm:git:git://github.com/furdei/furdroid.git</connection>
+    <developerConnection>scm:git:https://github.com/furdei/furdroid.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
-    <veganet-server.version>1.0-SNAPSHOT</veganet-server.version>
     <platform.version>4.1.1.4</platform.version>
     <android.release>false</android.release>
   </properties>
-
-<!--
-  <modules>
-    <module>furdroid-components</module>
-    <module>furdroid-floatingmenu</module>
-    <module>furdroid-navigationtoolbar</module>
-    <module>furdroid-security</module>
-    <module>ripple-drawable</module>
-  </modules>
--->
 
   <dependencyManagement>
     <dependencies>
@@ -144,50 +133,32 @@
         </plugin>
 
         <plugin>
-          <groupId>external.atlassian.jgitflow</groupId>
-          <artifactId>jgitflow-maven-plugin</artifactId>
-          <version>1.0-m3</version>
+          <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+          <artifactId>android-maven-plugin</artifactId>
+          <version>4.0.0-rc.2</version>
           <configuration>
-            <noDeploy>true</noDeploy>
+            <androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
+            <assetsDirectory>${project.basedir}/assets</assetsDirectory>
+            <resourceDirectory>${project.basedir}/res</resourceDirectory>
+            <nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
+            <sdk>
+              <platform>21</platform>
+            </sdk>
+            <undeployBeforeDeploy>true</undeployBeforeDeploy>
+            <includeLibsJarsFromAar>false</includeLibsJarsFromAar>
           </configuration>
+          <extensions>true</extensions>
         </plugin>
 
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.5.1</version>
+          <configuration>
+            <source>1.6</source>
+            <target>1.6</target>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
-	
-  <repositories> 
-    <!-- other repositories here -->     
-    <repository>
-      <releases>
-        <enabled>false</enabled>
-        <updatePolicy>never</updatePolicy>
-        <checksumPolicy>warn</checksumPolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-        <updatePolicy>never</updatePolicy>
-        <checksumPolicy>warn</checksumPolicy>
-      </snapshots>
-      <id>bugsense repo</id>
-      <name>The BugSense Repository</name>       
-      <url>http://mvn.bugsense.com/</url>     
-    </repository>   
-    <repository>
-        <releases>
-            <enabled>false</enabled>
-            <updatePolicy>never</updatePolicy>
-            <checksumPolicy>warn</checksumPolicy>
-        </releases>
-        <snapshots>
-            <enabled>false</enabled>
-            <updatePolicy>never</updatePolicy>
-            <checksumPolicy>warn</checksumPolicy>
-        </snapshots>
-      <id>android_extras</id>
-      <name>Android Extras</name>
-      <url>file://${env.ANDROID_HOME}\extras\android\m2repository</url>
-    </repository>
-  </repositories>
-	    
 </project>
