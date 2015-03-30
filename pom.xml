@@ -8,14 +8,14 @@
   </parent>
   <groupId>systems.furdei</groupId>
   <artifactId>furdroid</artifactId>
-  <version>1.1.1-SNAPSHOT</version>
+  <version>1.1.1</version>
   <packaging>pom</packaging>
 
   <scm>
     <url>https://github.com/furdei/furdroid</url>
     <connection>scm:git:git://github.com/furdei/furdroid.git</connection>
     <developerConnection>scm:git:https://github.com/furdei/furdroid.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>furdroid-1.1.1</tag>
   </scm>
 
   <properties>
