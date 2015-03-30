@@ -14,7 +14,7 @@ to include it in your awesome app!
 **Furdroid** introduces a [FloatingMenu](https://github.com/furdei/furdroid-floatingmenu)
 component: trendy widget to help you implement
 material-styled menu. It's totally customizable and extendable. It can be of any shape,
-open and close using any animation. And it is designed to be easily styled with your custom theme.
+open and close itself using any animation. And it is designed to be easily styled with your custom theme.
 **Furdroid** comes with 3d party implementation of RippleDrawable in Java, so that you can use it
 on any device regardless of it's API version.
 
@@ -39,11 +39,17 @@ generate key and store it in a secure manner.
 Android components, such as TintedDrawable support for any API version, PartialLoadingAdapter,
 FullCursorAdapter and visual widgets to work with FullCursorAdapter.
 
+### Ripple Drawable
+
+[Ripple-drawable](https://github.com/furdei/ripple-drawable) is a clone of Abdullaev Ozodrukh's
+RippleDrawable repository at https://github.com/ozodrukh/RippleDrawable
+The goal of this clone is to let everyone use this library from Maven Central repository
+
 ## Before you start
 
-Before you start using **furdroid** please make sure you have Android jars 'android:android' and
+Before you start using **furdroid** please make sure you have Android artifacts 'android:android' and
 'com.android.support' in your local Maven repository. If you don't please visit
 [maven-android-sdk-deployer](https://github.com/simpligility/maven-android-sdk-deployer)
 project and follow the instruction.
 
-Copyright (c) 2015 *furdei.systems* [www.furdei.systems](http://www.furdei.systems)
+Sponsored by *furdei.systems* [www.furdei.systems](http://www.furdei.systems) 2015

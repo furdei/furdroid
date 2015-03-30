@@ -8,7 +8,7 @@
   </parent>
   <groupId>systems.furdei</groupId>
   <artifactId>furdroid</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -20,7 +20,8 @@
 
   <properties>
     <platform.version>4.1.1.4</platform.version>
-    <android.release>false</android.release>
+    <project.codeVersion>1</project.codeVersion>
+    <android.release>true</android.release>
   </properties>
 
   <dependencyManagement>
@@ -109,6 +110,7 @@
         <artifactId>maven-scm-plugin</artifactId>
       </plugin>
     </plugins>
+
     <pluginManagement>
       <plugins>
         <plugin>
@@ -133,9 +135,9 @@
         </plugin>
 
         <plugin>
-          <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+          <groupId>com.simpligility.maven.plugins</groupId>
           <artifactId>android-maven-plugin</artifactId>
-          <version>4.0.0-rc.2</version>
+          <version>4.1.1</version>
           <configuration>
             <androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
             <assetsDirectory>${project.basedir}/assets</assetsDirectory>
@@ -148,6 +150,21 @@
             <includeLibsJarsFromAar>false</includeLibsJarsFromAar>
           </configuration>
           <extensions>true</extensions>
+          <executions>
+            <execution>
+                    <id>update-manifest</id>
+                    <phase>process-resources</phase>
+                    <goals>
+                        <goal>manifest-update</goal>
+                    </goals>
+                    <configuration>
+                        <manifest>
+                            <versionCode>${project.codeVersion}</versionCode>
+                            <versionName>${project.version}</versionName>
+                        </manifest>
+                    </configuration>
+                </execution>
+          </executions>
         </plugin>
 
         <plugin>
@@ -160,5 +177,13 @@
         </plugin>
       </plugins>
     </pluginManagement>
+
+    <resources>
+      <resource>
+        <directory>${pom.basedir}/src/main/resources</directory>
+        <targetPath>${pom.basedir}</targetPath>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
   </build>
 </project>
